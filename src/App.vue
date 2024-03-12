@@ -1,7 +1,7 @@
 <script lang="ts" setup>
+import { ref, watchEffect } from "vue";
 import { getSkills } from "@/api";
 import type { Skill } from "@/types.d";
-import { ref, watchEffect } from "vue";
 
 const skills = ref<Skill[]>([]);
 

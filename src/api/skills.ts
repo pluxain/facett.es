@@ -1,4 +1,4 @@
-import { Skill } from "@/types.d";
+import type { Skill } from "@/types.d";
 
 export async function getSkills(): Promise<Skill[]> {
   return Promise.resolve([
