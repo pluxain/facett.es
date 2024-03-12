@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, watchEffect } from "vue";
+import { computed, ref, watchEffect } from "vue";
 import { getSkills } from "@/api";
 import type { Skill } from "@/types.d";
 
@@ -8,14 +8,29 @@ const skills = ref<Skill[]>([]);
 watchEffect(async () => {
   skills.value = await getSkills();
 });
+
+const hardSkills = computed(() =>
+  skills.value.filter((skill) => skill.kind === "hardskill"),
+);
+
+const softSkills = computed(() =>
+  skills.value.filter((skill) => skill.kind === "softskill"),
+);
 </script>
+
 <template>
   <div class="grid grid-cols-3 gap-4 m-6 p-4 border">
-    <aside>
+    <aside class="grid gap-4">
       <div>
         <h3 class="mb-2 text-l font-bold uppercase">Technical Skills</h3>
         <ul class="list-inside list-disc text-sm">
-          <li v-for="skill in skills" :key="skill.id">{{ skill.text }}</li>
+          <li v-for="skill in hardSkills" :key="skill.id">{{ skill.text }}</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="mb-2 text-l font-bold uppercase">Soft Skills</h3>
+        <ul class="list-inside list-disc text-sm">
+          <li v-for="skill in softSkills" :key="skill.id">{{ skill.text }}</li>
         </ul>
       </div>
     </aside>
