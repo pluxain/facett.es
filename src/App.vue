@@ -10,11 +10,15 @@ watchEffect(async () => {
 });
 
 const hardSkills = computed(() =>
-  skills.value.filter((skill) => skill.kind === "hardskill"),
+  skills.value.filter((skill) => skill.kind === "hard"),
 );
 
 const softSkills = computed(() =>
-  skills.value.filter((skill) => skill.kind === "softskill"),
+  skills.value.filter((skill) => skill.kind === "soft"),
+);
+
+const languageSkills = computed(() =>
+  skills.value.filter((skill) => skill.kind === "language"),
 );
 </script>
 
@@ -31,6 +35,14 @@ const softSkills = computed(() =>
         <h3 class="mb-2 text-l font-bold uppercase">Soft Skills</h3>
         <ul class="list-inside list-disc text-sm">
           <li v-for="skill in softSkills" :key="skill.id">{{ skill.text }}</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="mb-2 text-l font-bold uppercase">Languages</h3>
+        <ul class="list-inside list-disc text-sm">
+          <li v-for="skill in languageSkills" :key="skill.id">
+            {{ skill.text }}
+          </li>
         </ul>
       </div>
     </aside>
