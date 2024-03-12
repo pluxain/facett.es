@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import { computed, ref, watchEffect } from "vue";
 import { getSkills } from "@/api";
-import type { Skill } from "@/types.d";
+import type { LanguageSkill, Skill } from "@/types.d";
+import { isHardSkill, isLanguageSkill, isSoftSkill } from "@/utils/typeguards";
 
 const skills = ref<Skill[]>([]);
 
@@ -9,16 +10,12 @@ watchEffect(async () => {
   skills.value = await getSkills();
 });
 
-const hardSkills = computed(() =>
-  skills.value.filter((skill) => skill.kind === "hard"),
-);
+const hardSkills = computed(() => skills.value.filter(isHardSkill));
 
-const softSkills = computed(() =>
-  skills.value.filter((skill) => skill.kind === "soft"),
-);
+const softSkills = computed(() => skills.value.filter(isSoftSkill));
 
-const languageSkills = computed(() =>
-  skills.value.filter((skill) => skill.kind === "language"),
+const languageSkills = computed<LanguageSkill[]>(() =>
+  skills.value.filter(isLanguageSkill),
 );
 </script>
 
@@ -39,9 +36,12 @@ const languageSkills = computed(() =>
       </div>
       <div>
         <h3 class="mb-2 text-l font-bold uppercase">Languages</h3>
-        <ul class="list-inside list-disc text-sm">
+        <ul class="flex gap-4">
           <li v-for="skill in languageSkills" :key="skill.id">
-            {{ skill.text }}
+            <img
+              :src="`/images/flags/svg/${skill.flag}.svg`"
+              class="w-6 h-full object-cover rounded-sm shadow-md"
+            />
           </li>
         </ul>
       </div>

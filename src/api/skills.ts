@@ -8,6 +8,11 @@ export async function getSkills(): Promise<Skill[]> {
       text: "Javascript/Typescript",
     },
     {
+      id: "cddedbfd-7729-4252-888c-20821160ae9d",
+      kind: "hard",
+      text: "HTML/CSS",
+    },
+    {
       id: "3afce9ea-8635-46a5-91a6-9547420bec1c",
       kind: "hard",
       text: "React/Vue",
@@ -19,8 +24,9 @@ export async function getSkills(): Promise<Skill[]> {
     },
     {
       id: "846e4420-8808-48d2-922b-aee5a145fb14",
-      kind: "language",
       code: "fr",
+      flag: "fr",
+      kind: "language",
       text: "français",
     },
     {
@@ -50,8 +56,9 @@ export async function getSkills(): Promise<Skill[]> {
     },
     {
       id: "b5f5e84d-615e-423f-b344-28c49c31aeb7",
-      kind: "language",
       code: "en",
+      flag: "gb",
+      kind: "language",
       text: "english",
     },
     {
@@ -61,14 +68,16 @@ export async function getSkills(): Promise<Skill[]> {
     },
     {
       id: "0e21df29-f21b-4c75-9bee-110f5790ee3e",
-      kind: "language",
       code: "it",
+      flag: "it",
+      kind: "language",
       text: "italiano",
     },
     {
       id: "f9941bc3-a4c1-4d93-97e4-c3333340af30",
-      kind: "language",
       code: "de",
+      flag: "de",
+      kind: "language",
       text: "deutsch",
     },
     {
@@ -83,8 +92,9 @@ export async function getSkills(): Promise<Skill[]> {
     },
     {
       id: "08b361a9-8ae8-4321-ab3a-1c3ea45cb556",
-      kind: "language",
       code: "ja",
+      flag: "jp",
+      kind: "language",
       text: "日本語",
     },
     {
