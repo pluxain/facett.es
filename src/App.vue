@@ -2,6 +2,7 @@
 import { computed, ref, watchEffect } from "vue";
 import { getProfile } from "@/api";
 import SectionHeading from "@/components/SectionHeading.vue";
+import { useDateTimeFormatters } from "@/composables/useDateTimeFormatters";
 import { isHardSkill, isLanguageSkill, isSoftSkill } from "@/utils/typeguards";
 import type { Nullable, Profile } from "@/types.d";
 
@@ -22,6 +23,11 @@ const softSkills = computed(() =>
 const languageSkills = computed(() =>
   profile.value ? profile.value.skills.filter(isLanguageSkill) : [],
 );
+
+const { dateFormatter } = useDateTimeFormatters("en-US", {
+  year: "numeric",
+  month: "short",
+});
 </script>
 
 <template>
@@ -29,7 +35,7 @@ const languageSkills = computed(() =>
     <aside class="grid gap-4">
       <div>
         <SectionHeading text="Technical Skills" />
-        <ul class="list-inside list-disc text-sm">
+        <ul class="list-inside list-disc text-sm font-light">
           <li v-for="skill in hardSkills" :key="skill.id">
             {{ skill.text }}
           </li>
@@ -37,7 +43,7 @@ const languageSkills = computed(() =>
       </div>
       <div>
         <SectionHeading text="Soft Skills" />
-        <ul class="list-inside list-disc text-sm">
+        <ul class="list-inside list-disc text-sm font-light">
           <li v-for="skill in softSkills" :key="skill.id">
             {{ skill.text }}
           </li>
@@ -56,7 +62,7 @@ const languageSkills = computed(() =>
       </div>
       <div>
         <h3 class="mb-2 text-l font-bold uppercase">How to contact me</h3>
-        <ul class="flex flex-col text-sm">
+        <ul class="flex flex-col text-sm font-light">
           <li>
             <a :href="`mailto:${profile.email}`">{{ profile.email }}</a>
           </li>
@@ -66,7 +72,7 @@ const languageSkills = computed(() =>
         </ul>
       </div>
     </aside>
-    <section class="col-span-2 border-l">
+    <section class="col-span-2 px-4 border-l">
       <header>
         <h1 class="text-2xl font-bold text-center text-blue-300">
           {{ profile.firstname }} {{ profile.lastname }}
@@ -75,6 +81,25 @@ const languageSkills = computed(() =>
           {{ profile.qualification }}
         </h2>
       </header>
+      <article>
+        <SectionHeading text="Work Experiences" />
+        <div
+          v-for="workExperience in profile.workExperiences"
+          :key="workExperience.id"
+          class="my-4"
+        >
+          <h4 class="mb-2 text-l font-extrabold">
+            {{ workExperience.jobTitle }}
+          </h4>
+          <h5 class="font-normal tracking-wide">
+            {{ workExperience.company }} |
+            {{ dateFormatter.format(workExperience.startDate) }} -
+            {{ dateFormatter.format(workExperience.endDate) }}
+          </h5>
+          <!-- TODO: add Markdown support @see https://vuejs.org/examples/#markdown -->
+          <div class="font-light">{{ workExperience.description }}</div>
+        </div>
+      </article>
     </section>
   </div>
 </template>

@@ -111,5 +111,23 @@ export async function getProfile(id: UUID): Promise<Profile> {
         text: "Independent",
       },
     ],
+    workExperiences: [
+      {
+        id: "de3854dd-092a-43e3-a718-588312d59710",
+        company: "Omnetric GmbH",
+        description: "I did stuff",
+        endDate: new Date("2020-12-31"),
+        jobTitle: "UI Key Developer",
+        startDate: new Date("2019-01-01"),
+      },
+      {
+        id: "a8023f60-ccd8-4b0c-92e7-67bd1ad02ade",
+        company: "Freelancer",
+        description: "I did cool stuff",
+        endDate: new Date("2019-01-31"),
+        jobTitle: "Senior Full-stack Developer",
+        startDate: new Date("2011-09-01"),
+      },
+    ],
   });
 }

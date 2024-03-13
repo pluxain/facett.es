@@ -3,6 +3,7 @@ export type UUID = string;
 export type Email = string;
 export type PhoneNumber = string;
 export type Address = string;
+export type Company = string;
 
 const iso639Codes = [
   "aa",
@@ -470,6 +471,15 @@ export type Skill = HardSkill | SoftSkill | LanguageSkill;
 
 export type SkillKind = Skill["kind"];
 
+export type WorkExperience = {
+  id: UUID;
+  company: Company;
+  description: string;
+  endDate: Date;
+  jobTitle: string;
+  startDate: Date;
+};
+
 // TODO: find a proper name like Facette or Angle or sth else which related to the platform name.
 export type Profile = {
   id: UUID;
@@ -480,4 +490,5 @@ export type Profile = {
   qualification: string;
   phoneNumber: PhoneNumber;
   skills: Skill[];
+  workExperiences: WorkExperience[];
 };
