@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 import { computed, ref, watchEffect } from "vue";
 import { getProfile } from "@/api";
-import type { Nullable, Profile } from "@/types.d";
+import SectionHeading from "@/components/SectionHeading.vue";
 import { isHardSkill, isLanguageSkill, isSoftSkill } from "@/utils/typeguards";
+import type { Nullable, Profile } from "@/types.d";
 
 const profile = ref<Nullable<Profile>>(null);
 
@@ -27,7 +28,7 @@ const languageSkills = computed(() =>
   <div v-if="profile" class="grid grid-cols-3 gap-4 m-6 p-4 border">
     <aside class="grid gap-4">
       <div>
-        <h3 class="mb-2 text-l font-bold uppercase">Technical Skills</h3>
+        <SectionHeading text="Technical Skills" />
         <ul class="list-inside list-disc text-sm">
           <li v-for="skill in hardSkills" :key="skill.id">
             {{ skill.text }}
@@ -35,7 +36,7 @@ const languageSkills = computed(() =>
         </ul>
       </div>
       <div>
-        <h3 class="mb-2 text-l font-bold uppercase">Soft Skills</h3>
+        <SectionHeading text="Soft Skills" />
         <ul class="list-inside list-disc text-sm">
           <li v-for="skill in softSkills" :key="skill.id">
             {{ skill.text }}
@@ -43,7 +44,7 @@ const languageSkills = computed(() =>
         </ul>
       </div>
       <div>
-        <h3 class="mb-2 text-l font-bold uppercase">Languages</h3>
+        <SectionHeading text="Languages" />
         <ul class="flex gap-4 text-sm">
           <li v-for="skill in languageSkills" :key="skill.id">
             <img
