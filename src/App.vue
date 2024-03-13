@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { computed, ref, watchEffect } from "vue";
+import { marked } from "marked";
 import { getProfile } from "@/api";
 import SectionHeading from "@/components/SectionHeading.vue";
 import { useDateTimeFormatters } from "@/composables/useDateTimeFormatters";
@@ -94,9 +95,9 @@ const { dateFormatter: dateFormatterForEducation } = useDateTimeFormatters(
       <section class="grid gap-4">
         <article>
           <SectionHeading text="Profile" />
-          <div class="font-light">
-            {{ profile.introduction }}
-          </div>
+          <!-- eslint-disable vue/no-v-html -->
+          <div class="font-light" v-html="marked(profile.introduction)"></div>
+          <!-- eslint-enable vue/no-v-html -->
         </article>
         <article>
           <SectionHeading text="Work Experiences" />
@@ -116,8 +117,12 @@ const { dateFormatter: dateFormatterForEducation } = useDateTimeFormatters(
               -
               {{ dateFormatterForWorExperience.format(workExperience.endDate) }}
             </h5>
-            <!-- TODO: add Markdown support @see https://vuejs.org/examples/#markdown -->
-            <div class="font-light">{{ workExperience.description }}</div>
+            <!-- eslint-disable vue/no-v-html -->
+            <div
+              class="font-light"
+              v-html="marked(workExperience.description)"
+            ></div>
+            <!-- eslint-enable vue/no-v-html -->
           </div>
         </article>
         <article>
@@ -135,8 +140,12 @@ const { dateFormatter: dateFormatterForEducation } = useDateTimeFormatters(
               {{ dateFormatterForEducation.format(education.startDate) }} -
               {{ dateFormatterForEducation.format(education.endDate) }}
             </h5>
-            <!-- TODO: add Markdown support @see https://vuejs.org/examples/#markdown -->
-            <div class="font-light">{{ education.description }}</div>
+            <!-- eslint-disable vue/no-v-html -->
+            <div
+              class="font-light"
+              v-html="marked(education.description)"
+            ></div>
+            <!-- eslint-enable vue/no-v-html -->
           </div>
         </article>
       </section>

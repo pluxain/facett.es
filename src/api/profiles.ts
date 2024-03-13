@@ -8,7 +8,10 @@ export async function getProfile(id: UUID): Promise<Profile> {
       {
         id: "989e7a1b-13b1-4ff7-a1a4-cf6b4e80697d",
         endDate: new Date("2009-12-31"),
-        description: "Software Developer",
+        description: `
+- Java, C#, PHP, Javascript
+- Training solution with XML/XSLT/XPATH
+        `,
         location: "AFPA Champ-sur-Marne",
         degree: "Titre Professionnel",
         startDate: new Date("2008-01-01"),
@@ -18,10 +21,10 @@ export async function getProfile(id: UUID): Promise<Profile> {
     email: "pascal.luxain@gmail.com",
     firstname: "Pascal",
     introduction: `Jack of all trades specialized in frontend development.
-    Armed with a “can do” attitude and focused on finding solutions.
+    Armed with a **“can do”** attitude and **focused on finding solutions**.
     Purposefully seek to write functional, fast and maintainable code following best practices and using tests to give
-    confidence and provide documentation.
-    Driven to deliver the best software possible to make happy users.
+    **confidence** and provide documentation.
+    **Driven** to deliver the best software possible to make **happy users**.
     Eager to learn. 25+ years experience in Information Technology.
     `,
     lastname: "Luxain",
@@ -133,7 +136,15 @@ export async function getProfile(id: UUID): Promise<Profile> {
       {
         id: "de3854dd-092a-43e3-a718-588312d59710",
         company: "Omnetric GmbH",
-        description: "I did stuff",
+        description: `
+- Lead Developer of ATMaster Meter Operation Center GIS feature
+    - Visualization of Devices on Map and Data-Grid
+    - Filtering, incremental selection, area selection of Devices
+    - Layers settings through configuration
+    - Custom CRS settings through configuration
+- Frontend testing of EnergyIP application using cypress.io
+- Proof of Concept of Mobile Application for Covid-19 with Flutter
+        `,
         endDate: new Date("2020-12-31"),
         jobTitle: "UI Key Developer",
         startDate: new Date("2019-01-01"),
@@ -141,7 +152,12 @@ export async function getProfile(id: UUID): Promise<Profile> {
       {
         id: "a8023f60-ccd8-4b0c-92e7-67bd1ad02ade",
         company: "Freelancer",
-        description: "I did cool stuff",
+        description: `
+- Bootista: Fashion Mobile Application
+  - ReactNative Mobile Frontend, Jest for tests
+  - Laravel Backend (Dashboard and REST API), Kahlan for tests
+- Websites creation, trainings on modern Frontend development
+        `,
         endDate: new Date("2019-01-31"),
         jobTitle: "Senior Full-stack Developer",
         startDate: new Date("2011-09-01"),
