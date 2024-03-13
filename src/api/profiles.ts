@@ -4,6 +4,17 @@ export async function getProfile(id: UUID): Promise<Profile> {
   return Promise.resolve({
     id,
     address: null,
+    educations: [
+      {
+        id: "989e7a1b-13b1-4ff7-a1a4-cf6b4e80697d",
+        endDate: new Date("2009-12-31"),
+        description: "Software Developer",
+        location: "AFPA Champ-sur-Marne",
+        degree: "Titre Professionnel",
+        startDate: new Date("2008-01-01"),
+        title: "Software Developer",
+      },
+    ],
     email: "pascal.luxain@gmail.com",
     firstname: "Pascal",
     introduction: `Jack of all trades specialized in frontend development.

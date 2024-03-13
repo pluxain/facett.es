@@ -1,9 +1,11 @@
 export type Nullable<T> = T | null;
-export type UUID = string;
-export type Email = string;
-export type PhoneNumber = string;
 export type Address = string;
 export type Company = string;
+export type Degree = string;
+export type Email = string;
+export type Location = string;
+export type PhoneNumber = string;
+export type UUID = string;
 
 const iso639Codes = [
   "aa",
@@ -480,10 +482,21 @@ export type WorkExperience = {
   startDate: Date;
 };
 
+export type Education = {
+  id: UUID;
+  endDate: Date;
+  degree: Degree;
+  description: string;
+  location: Location;
+  startDate: Date;
+  title: string;
+};
+
 // TODO: find a proper name like Facette or Angle or sth else which related to the platform name.
 export type Profile = {
   id: UUID;
   address: Nullable<Address>;
+  educations: Education[];
   email: Email;
   firstname: string;
   introduction: string;

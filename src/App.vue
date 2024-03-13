@@ -24,10 +24,20 @@ const languageSkills = computed(() =>
   profile.value ? profile.value.skills.filter(isLanguageSkill) : [],
 );
 
-const { dateFormatter } = useDateTimeFormatters("en-US", {
-  year: "numeric",
-  month: "short",
-});
+const { dateFormatter: dateFormatterForWorExperience } = useDateTimeFormatters(
+  "en-US",
+  {
+    year: "numeric",
+    month: "short",
+  },
+);
+
+const { dateFormatter: dateFormatterForEducation } = useDateTimeFormatters(
+  "en-US",
+  {
+    year: "numeric",
+  },
+);
 </script>
 
 <template>
@@ -100,11 +110,33 @@ const { dateFormatter } = useDateTimeFormatters("en-US", {
             </h4>
             <h5 class="font-normal tracking-wide">
               {{ workExperience.company }} |
-              {{ dateFormatter.format(workExperience.startDate) }} -
-              {{ dateFormatter.format(workExperience.endDate) }}
+              {{
+                dateFormatterForWorExperience.format(workExperience.startDate)
+              }}
+              -
+              {{ dateFormatterForWorExperience.format(workExperience.endDate) }}
             </h5>
             <!-- TODO: add Markdown support @see https://vuejs.org/examples/#markdown -->
             <div class="font-light">{{ workExperience.description }}</div>
+          </div>
+        </article>
+        <article>
+          <SectionHeading text="Education" />
+          <div
+            v-for="education in profile.educations"
+            :key="education.id"
+            class="my-4"
+          >
+            <h4 class="mb-2 text-l font-extrabold">
+              {{ education.title }} | {{ education.degree }}
+            </h4>
+            <h5 class="font-normal tracking-wide">
+              {{ education.location }} |
+              {{ dateFormatterForEducation.format(education.startDate) }} -
+              {{ dateFormatterForEducation.format(education.endDate) }}
+            </h5>
+            <!-- TODO: add Markdown support @see https://vuejs.org/examples/#markdown -->
+            <div class="font-light">{{ education.description }}</div>
           </div>
         </article>
       </section>
