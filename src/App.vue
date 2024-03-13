@@ -81,25 +81,33 @@ const { dateFormatter } = useDateTimeFormatters("en-US", {
           {{ profile.qualification }}
         </h2>
       </header>
-      <article>
-        <SectionHeading text="Work Experiences" />
-        <div
-          v-for="workExperience in profile.workExperiences"
-          :key="workExperience.id"
-          class="my-4"
-        >
-          <h4 class="mb-2 text-l font-extrabold">
-            {{ workExperience.jobTitle }}
-          </h4>
-          <h5 class="font-normal tracking-wide">
-            {{ workExperience.company }} |
-            {{ dateFormatter.format(workExperience.startDate) }} -
-            {{ dateFormatter.format(workExperience.endDate) }}
-          </h5>
-          <!-- TODO: add Markdown support @see https://vuejs.org/examples/#markdown -->
-          <div class="font-light">{{ workExperience.description }}</div>
-        </div>
-      </article>
+      <section class="grid gap-4">
+        <article>
+          <SectionHeading text="Profile" />
+          <div class="font-light">
+            {{ profile.introduction }}
+          </div>
+        </article>
+        <article>
+          <SectionHeading text="Work Experiences" />
+          <div
+            v-for="workExperience in profile.workExperiences"
+            :key="workExperience.id"
+            class="my-4"
+          >
+            <h4 class="mb-2 text-l font-extrabold">
+              {{ workExperience.jobTitle }}
+            </h4>
+            <h5 class="font-normal tracking-wide">
+              {{ workExperience.company }} |
+              {{ dateFormatter.format(workExperience.startDate) }} -
+              {{ dateFormatter.format(workExperience.endDate) }}
+            </h5>
+            <!-- TODO: add Markdown support @see https://vuejs.org/examples/#markdown -->
+            <div class="font-light">{{ workExperience.description }}</div>
+          </div>
+        </article>
+      </section>
     </section>
   </div>
 </template>

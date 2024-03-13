@@ -486,9 +486,10 @@ export type Profile = {
   address: Nullable<Address>;
   email: Email;
   firstname: string;
+  introduction: string;
   lastname: string;
-  qualification: string;
   phoneNumber: PhoneNumber;
+  qualification: string;
   skills: Skill[];
   workExperiences: WorkExperience[];
 };

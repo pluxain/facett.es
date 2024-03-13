@@ -6,6 +6,13 @@ export async function getProfile(id: UUID): Promise<Profile> {
     address: null,
     email: "pascal.luxain@gmail.com",
     firstname: "Pascal",
+    introduction: `Jack of all trades specialized in frontend development.
+    Armed with a “can do” attitude and focused on finding solutions.
+    Purposefully seek to write functional, fast and maintainable code following best practices and using tests to give
+    confidence and provide documentation.
+    Driven to deliver the best software possible to make happy users.
+    Eager to learn. 25+ years experience in Information Technology.
+    `,
     lastname: "Luxain",
     phoneNumber: "+43 663 0311 0394",
     qualification: "Senior Frontend Developer",
