@@ -1,2 +1,3 @@
 import { getSkills } from "./skills";
-export { getSkills };
+import { getProfile } from "./profiles";
+export { getProfile, getSkills };

@@ -1,4 +1,8 @@
+export type Nullable<T> = T | null;
 export type UUID = string;
+export type Email = string;
+export type PhoneNumber = string;
+export type Address = string;
 
 const iso639Codes = [
   "aa",
@@ -465,3 +469,14 @@ export type LanguageSkill = BaseSkill & {
 export type Skill = HardSkill | SoftSkill | LanguageSkill;
 
 export type SkillKind = Skill["kind"];
+
+// TODO: find a proper name like Facette or Angle or sth else which related to the platform name.
+export type Profile = {
+  id: UUID;
+  address: Nullable<Address>;
+  email: Email;
+  firstname: string;
+  lastname: string;
+  qualification: string;
+  phoneNumber: PhoneNumber;
+};
