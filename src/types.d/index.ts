@@ -479,4 +479,5 @@ export type Profile = {
   lastname: string;
   qualification: string;
   phoneNumber: PhoneNumber;
+  skills: Skill[];
 };
