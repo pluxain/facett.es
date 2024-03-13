@@ -7,6 +7,15 @@ export type Location = string;
 export type PhoneNumber = string;
 export type UUID = string;
 
+export type WithId<T> = T & {
+  id: UUID;
+};
+
+export type WithDateInterval<T> = T & {
+  endDate: Date;
+  startDate: Date;
+};
+
 const iso639Codes = [
   "aa",
   "ab",
@@ -450,10 +459,9 @@ const iso3166Codes = [
 
 type Iso3166 = (typeof iso3166Codes)[number];
 
-type BaseSkill = {
-  id: UUID;
+type BaseSkill = WithId<{
   text: string;
-};
+}>;
 
 export type HardSkill = BaseSkill & {
   kind: "hard";
@@ -473,28 +481,25 @@ export type Skill = HardSkill | SoftSkill | LanguageSkill;
 
 export type SkillKind = Skill["kind"];
 
-export type WorkExperience = {
-  id: UUID;
-  company: Company;
-  description: string;
-  endDate: Date;
-  jobTitle: string;
-  startDate: Date;
-};
+export type WorkExperience = WithId<
+  WithDateInterval<{
+    company: Company;
+    description: string;
+    jobTitle: string;
+  }>
+>;
 
-export type Education = {
-  id: UUID;
-  endDate: Date;
-  degree: Degree;
-  description: string;
-  location: Location;
-  startDate: Date;
-  title: string;
-};
+export type Education = WithId<
+  WithDateInterval<{
+    degree: Degree;
+    description: string;
+    location: Location;
+    title: string;
+  }>
+>;
 
 // TODO: find a proper name like Facette or Angle or sth else which related to the platform name.
-export type Profile = {
-  id: UUID;
+export type Profile = WithId<{
   address: Nullable<Address>;
   educations: Education[];
   email: Email;
@@ -505,4 +510,4 @@ export type Profile = {
   qualification: string;
   skills: Skill[];
   workExperiences: WorkExperience[];
-};
+}>;
