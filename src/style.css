@@ -1,3 +1,14 @@
 @tailwind base;
+@layer base {
+  ul {
+    @apply list-inside list-disc;
+  }
+
+  li {
+    ul {
+      @apply ml-4 list-circle;
+    }
+  }
+}
 @tailwind components;
 @tailwind utilities;

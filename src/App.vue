@@ -46,7 +46,7 @@ const { dateFormatter: dateFormatterForEducation } = useDateTimeFormatters(
     <aside class="grid gap-4">
       <div>
         <SectionHeading text="Technical Skills" />
-        <ul class="list-inside list-disc text-sm font-light">
+        <ul class="list-inside text-sm font-light">
           <li v-for="skill in hardSkills" :key="skill.id">
             {{ skill.text }}
           </li>
@@ -54,7 +54,7 @@ const { dateFormatter: dateFormatterForEducation } = useDateTimeFormatters(
       </div>
       <div>
         <SectionHeading text="Soft Skills" />
-        <ul class="list-inside list-disc text-sm font-light">
+        <ul class="list-inside text-sm font-light">
           <li v-for="skill in softSkills" :key="skill.id">
             {{ skill.text }}
           </li>
@@ -62,7 +62,7 @@ const { dateFormatter: dateFormatterForEducation } = useDateTimeFormatters(
       </div>
       <div>
         <SectionHeading text="Languages" />
-        <ul class="flex gap-4 text-sm">
+        <ul class="flex gap-4 list-none text-sm">
           <li v-for="skill in languageSkills" :key="skill.id">
             <img
               :src="`/images/flags/svg/${skill.flag}.svg`"
@@ -73,7 +73,7 @@ const { dateFormatter: dateFormatterForEducation } = useDateTimeFormatters(
       </div>
       <div>
         <h3 class="mb-2 text-l font-bold uppercase">How to contact me</h3>
-        <ul class="flex flex-col text-sm font-light">
+        <ul class="flex flex-col list-none text-sm font-light">
           <li>
             <a :href="`mailto:${profile.email}`">{{ profile.email }}</a>
           </li>
