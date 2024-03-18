@@ -29,6 +29,7 @@ export async function getProfile(id: UUID): Promise<Profile> {
     `,
     lastname: "Luxain",
     phoneNumber: "+43 663 0311 0394",
+    picture: "4fb0275b-ca65-44d3-9b61-16a3353413f2.png",
     qualification: "Senior Frontend Developer",
     skills: [
       {

@@ -5,6 +5,7 @@ export type Degree = string;
 export type Email = string;
 export type Location = string;
 export type PhoneNumber = string;
+export type Picture = string;
 export type UUID = string;
 
 export type WithId<T> = T & {
@@ -507,6 +508,7 @@ export type Profile = WithId<{
   introduction: string;
   lastname: string;
   phoneNumber: PhoneNumber;
+  picture: Picture;
   qualification: string;
   skills: Skill[];
   workExperiences: WorkExperience[];

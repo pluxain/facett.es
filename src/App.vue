@@ -44,6 +44,13 @@ const { dateFormatter: dateFormatterForEducation } = useDateTimeFormatters(
 <template>
   <div v-if="profile" class="grid grid-cols-3 gap-4 m-6 p-4 border">
     <aside class="grid gap-4">
+      <div class="flex justify-center items-center">
+        <img
+          :src="`/images/profiles/${profile.id}/${profile.picture}`"
+          height="150px"
+          width="150px"
+        />
+      </div>
       <div>
         <SectionHeading text="Technical Skills" />
         <ul class="list-inside text-sm font-light">
