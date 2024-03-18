@@ -9,7 +9,7 @@ export async function getProfile(id: UUID): Promise<Profile> {
         id: "989e7a1b-13b1-4ff7-a1a4-cf6b4e80697d",
         endDate: new Date("2009-12-31"),
         description: `
-- Java, C#, PHP, Javascript
+- Java, PHP, Javascript, SQL
 - Training solution with XML/XSLT/XPATH
         `,
         location: "AFPA Champ-sur-Marne",
@@ -62,7 +62,7 @@ export async function getProfile(id: UUID): Promise<Profile> {
       {
         id: "351b63dd-8571-49fa-be22-94fa1c3f1625",
         kind: "hard",
-        text: "TDD/BDD/Cucumber",
+        text: "TDD/BDD",
       },
       {
         id: "764acea0-5d60-4ca9-9570-1b2cd519e8ad",
@@ -94,7 +94,12 @@ export async function getProfile(id: UUID): Promise<Profile> {
       {
         id: "49eb7951-f9f6-43f6-9b6f-52c3b7e98a39",
         kind: "hard",
-        text: "Java/Spring Boot/PHP/Laravel",
+        text: "Java/Spring Boot",
+      },
+      {
+        id: "5428c718-5f71-4ec3-abf9-f6c968f52c50",
+        kind: "hard",
+        text: "PHP/Laravel",
       },
       {
         id: "0e21df29-f21b-4c75-9bee-110f5790ee3e",
@@ -134,6 +139,28 @@ export async function getProfile(id: UUID): Promise<Profile> {
       },
     ],
     workExperiences: [
+      {
+        id: "310a4032-fd39-4222-bfe7-592a77935b28",
+        company: "willhaben",
+        description: `
+- Rental oriented product development using React/StyledComponents
+- Frontend for internal moderation tool in Spring Boot/Java/Thymeleaf
+        `,
+        endDate: new Date("2023-02-1"),
+        jobTitle: "Senior Frontend Developer",
+        startDate: new Date("2024-02-15"),
+      },
+      {
+        id: "536aa679-fb6f-4587-98ca-1b59625c5f28",
+        company: "Tset GmbH",
+        description: `
+- Refactoring of internal code using Vue
+- Pushing for good practices and Unit Tests
+        `,
+        endDate: new Date("2022-11-30"),
+        jobTitle: "Senior Frontend Developer",
+        startDate: new Date("2021-03-01"),
+      },
       {
         id: "de3854dd-092a-43e3-a718-588312d59710",
         company: "Omnetric GmbH",
