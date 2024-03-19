@@ -47,8 +47,8 @@ const { dateFormatter: dateFormatterForEducation } = useDateTimeFormatters(
     class="w-[210mm] h-[297mm] grid p-[5mm] border grid-cols-[70mm_130mm]"
   >
     <aside class="grid gap-4 text-sm">
-      <div class="flex justify-center items-center p-6 bg-black">
-        <div class="bg-white w-[150px] h-[150px] rounded-full">
+      <div class="flex justify-center items-center bg-[#323232]">
+        <div class="w-[70mm] h-[70mm] rounded-full">
           <img :src="`/images/profiles/${profile.id}/${profile.picture}`" />
         </div>
       </div>
