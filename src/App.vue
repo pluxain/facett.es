@@ -42,45 +42,48 @@ const { dateFormatter: dateFormatterForEducation } = useDateTimeFormatters(
 </script>
 
 <template>
-  <div v-if="profile" class="grid grid-cols-3 gap-4 m-6 p-4 border">
-    <aside class="grid gap-4">
-      <div class="flex justify-center items-center">
-        <img
-          :src="`/images/profiles/${profile.id}/${profile.picture}`"
-          height="150px"
-          width="150px"
-        />
+  <div
+    v-if="profile"
+    class="w-[210mm] h-[297mm] grid p-[5mm] border grid-cols-[70mm_130mm]"
+  >
+    <aside class="grid gap-4 text-sm">
+      <div class="flex justify-center items-center p-6 bg-black">
+        <div class="bg-white w-[150px] h-[150px] rounded-full">
+          <img :src="`/images/profiles/${profile.id}/${profile.picture}`" />
+        </div>
       </div>
-      <div>
-        <SectionHeading text="Technical Skills" />
-        <ul class="list-inside text-sm font-light">
-          <li v-for="skill in hardSkills" :key="skill.id">
-            {{ skill.text }}
-          </li>
-        </ul>
+      <div class="grid gap-4 p-4 bg-blue-200">
+        <div>
+          <SectionHeading text="Technical Skills" />
+          <ul class="list-inside font-light">
+            <li v-for="skill in hardSkills" :key="skill.id">
+              {{ skill.text }}
+            </li>
+          </ul>
+        </div>
+        <div>
+          <SectionHeading text="Soft Skills" />
+          <ul class="list-inside font-light">
+            <li v-for="skill in softSkills" :key="skill.id">
+              {{ skill.text }}
+            </li>
+          </ul>
+        </div>
+        <div>
+          <SectionHeading text="Languages" />
+          <ul class="flex gap-4 list-none">
+            <li v-for="skill in languageSkills" :key="skill.id">
+              <img
+                :src="`/images/flags/svg/${skill.flag}.svg`"
+                class="w-6 h-full object-cover rounded-sm shadow-md"
+              />
+            </li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <SectionHeading text="Soft Skills" />
-        <ul class="list-inside text-sm font-light">
-          <li v-for="skill in softSkills" :key="skill.id">
-            {{ skill.text }}
-          </li>
-        </ul>
-      </div>
-      <div>
-        <SectionHeading text="Languages" />
-        <ul class="flex gap-4 list-none text-sm">
-          <li v-for="skill in languageSkills" :key="skill.id">
-            <img
-              :src="`/images/flags/svg/${skill.flag}.svg`"
-              class="w-6 h-full object-cover rounded-sm shadow-md"
-            />
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="mb-2 text-l font-bold uppercase">How to contact me</h3>
-        <ul class="flex flex-col list-none text-sm font-light">
+      <div class="bg-gray-100 p-4">
+        <SectionHeading text="Contact me" />
+        <ul class="flex flex-col list-none font-light">
           <li>
             <a :href="`mailto:${profile.email}`">{{ profile.email }}</a>
           </li>
@@ -90,16 +93,18 @@ const { dateFormatter: dateFormatterForEducation } = useDateTimeFormatters(
         </ul>
       </div>
     </aside>
-    <section class="col-span-2 px-4 border-l">
-      <header>
-        <h1 class="text-2xl font-bold text-center text-blue-300">
+    <section class="grid">
+      <header
+        class="flex flex-col gap-4 justify-center items-center pb-8 border-b-4 border-blue-200"
+      >
+        <h1 class="text-3xl font-bold text-blue-300">
           {{ profile.firstname }} {{ profile.lastname }}
         </h1>
-        <h2 class="text-l font-bold text-center uppercase underline">
+        <h2 class="text-xl font-bold text-center uppercase underline">
           {{ profile.qualification }}
         </h2>
       </header>
-      <section class="grid gap-4">
+      <section class="grid gap-4 px-4 pt-4 text-sm">
         <article>
           <SectionHeading text="Profile" />
           <!-- eslint-disable vue/no-v-html -->
