@@ -1,7 +1,11 @@
 {
-  "name": "facett.es",
+  "name": "facett.es-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "author": {
+    "email": "pascal.luxain@gmail.com",
+    "name": "Pascal Luxain"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
