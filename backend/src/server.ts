@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 //Importing Libraries
-require("dotenv").config();
 import { app } from ".";
 
 /*

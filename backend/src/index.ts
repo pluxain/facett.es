@@ -1,11 +1,11 @@
 //Importing project dependancies that we installed earlier
-import dotenv from "dotenv";
+import { config } from "dotenv";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import { validateEnv } from "./validateEnv";
 
-dotenv.config();
+config();
 validateEnv();
 
 //intializing the express app
