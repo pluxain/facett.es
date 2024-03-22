@@ -1,0 +1,38 @@
+{
+  "name": "facett.es",
+  "private": true,
+  "version": "0.0.1",
+  "author": {
+    "email": "pascal.luxain@gmail.com",
+    "name": "Pascal Luxain"
+  },
+  "type": "module",
+  "scripts": {
+    "lint:script": "eslint --ext .ts,vue --ignore-path ./.gitignore .",
+    "prepare": "husky"
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.11.25",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
+    "@vue/eslint-config-prettier": "9.0.0",
+    "@vue/eslint-config-typescript": "^13.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "5.1.3",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "3.2.5",
+    "typescript": "^5.2.2"
+  },
+  "lint-staged": {
+    "*.{ts,vue}": "eslint --fix",
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}

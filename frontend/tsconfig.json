@@ -21,6 +21,7 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Aliases */
+    "rootDir": ".",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
