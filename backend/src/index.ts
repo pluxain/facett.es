@@ -1,13 +1,20 @@
+import { config } from "dotenv";
 import { app } from "./app";
 import { db } from "./db";
 import { router } from "./routes";
+import { validateEnv } from "./validateEnv";
+
+// Load environment variables
+config();
+validateEnv();
+
 /*
   ===============================================================
  Importing the port set on the .env, if the port number is not set on .env or the port is being used by another server
 running on the local macchine we are asking the app to use 3000 as the port number
   ===============================================================
 */
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 try {
   await db.authenticate();
