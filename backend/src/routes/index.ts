@@ -9,4 +9,9 @@ router.get("/about", (_req, res) => {
   res.send("About endpoint defined in the router middleware");
 });
 
+// Catch all route -> 404
+router.use((_req, res) => {
+  res.status(404).send("Error 404 - Resource not found");
+});
+
 export { router };
