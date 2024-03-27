@@ -24,7 +24,7 @@ In order to run the frontend locally, please run `npm run frontend:dev` at the r
 
 ## backend
 
-Uses [NodeJs](https://nodejs.org) + [ExpressJs](http://expressjs.com/) + [Sqlite3](https://www.sqlite.org/) + [Sequelize](https://sequelize.org)
+Uses [NodeJs](https://nodejs.org) + [ExpressJs](http://expressjs.com/)
 
 Environment variables have to be set properly in an `.env` file in the `backend` folder
 
