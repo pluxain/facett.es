@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
 import { app } from "./app";
+import { router } from "./routes";
 /*
   ===============================================================
  Importing the port set on the .env, if the port number is not set on .env or the port is being used by another server
@@ -13,6 +13,4 @@ app.listen(PORT, async () => {
   console.log(`[server]: Server is running at http://localhost:${PORT}`);
 });
 
-app.get("/", (_req: Request, res: Response) => {
-  res.send("Express + TypeScript Server");
-});
+app.use("/", router);
