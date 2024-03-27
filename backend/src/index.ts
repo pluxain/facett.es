@@ -1,11 +1,10 @@
-import { config } from "dotenv";
+import "dotenv/config";
 import { app } from "./app";
 import { db } from "./db";
 import { router } from "./routes";
 import { validateEnv } from "./validateEnv";
 
-// Load environment variables
-config();
+// validate environment variables
 validateEnv();
 
 /*
