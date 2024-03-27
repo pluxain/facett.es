@@ -8,6 +8,8 @@
   },
   "type": "module",
   "scripts": {
+    "backend:dev": "npm run dev -w=backend",
+    "frontend:dev": "npm run dev -w=frontend",
     "lint:script": "eslint --ext .ts,vue --ignore-path ./.gitignore .",
     "prepare": "husky"
   },
