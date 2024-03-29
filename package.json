@@ -11,6 +11,10 @@
     "backend:dev": "npm run dev -w=backend",
     "frontend:dev": "npm run dev -w=frontend",
     "lint:script": "eslint --ext .ts,vue --ignore-path ./.gitignore .",
+    "prebackend:dev": "bash ./.nvm.use.sh",
+    "prebuild": "bash ./.nvm.use.sh",
+    "prefrontend:dev": "bash ./.nvm.use.sh",
+    "preinstall": "bash ./.nvm.use.sh",
     "prepare": "husky"
   },
   "workspaces": [
