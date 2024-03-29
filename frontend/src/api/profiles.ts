@@ -30,7 +30,7 @@ export async function getProfile(id: UUID): Promise<Profile> {
     lastname: "Luxain",
     phoneNumber: "+43 663 0311 0394",
     picture: "2c5e571a-fa0e-4661-8a55-b95518029640.png",
-    qualification: "Senior Frontend Developer",
+    qualification: "Senior Fullstack Developer",
     skills: [
       {
         id: "1d6415ca-e520-477a-b7dc-554137896d67",
@@ -45,7 +45,7 @@ export async function getProfile(id: UUID): Promise<Profile> {
       {
         id: "3afce9ea-8635-46a5-91a6-9547420bec1c",
         kind: "hard",
-        text: "React/Vue",
+        text: "React/Vue/Tailwind",
       },
       {
         id: "c299c4af-2972-4349-b783-ba76c1d69dda",
