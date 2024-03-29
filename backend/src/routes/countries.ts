@@ -1,8 +1,11 @@
 import { Request, Response, Router } from "express";
-const countries = Router();
+import { db, schema } from "../database";
+const router = Router();
 
-countries.get("/", (_req: Request, res: Response) => {
-  res.send("countries entrypoint");
+// TODO: seed the countries table
+router.get("/", (_req: Request, res: Response) => {
+  const countries = db.select().from(schema.countries);
+  res.send(countries.all());
 });
 
-export { countries };
+export { router as countries };
