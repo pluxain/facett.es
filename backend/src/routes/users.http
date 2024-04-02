@@ -1,0 +1,12 @@
+### Register Request
+POST http://localhost:5000/users/register HTTP/1.1
+Accept: application/json
+Content-Type : application/json
+
+{
+  "email": "john.doe@somewhere.rock",
+  "firstname": "John",
+  "lastname": "Doe",
+  "password": "p4ssw0rD",
+  "passwordConfirmation": "p4ssw0rD"
+}

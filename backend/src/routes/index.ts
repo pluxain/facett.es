@@ -1,5 +1,6 @@
 import { Request, Response, Router } from "express";
 import { countries } from "./countries";
+import { users } from "./users";
 const router = Router();
 
 router.get("/", (_req: Request, res: Response) => {
@@ -11,6 +12,7 @@ router.get("/about", (_req, res) => {
 });
 
 router.use("/countries", countries);
+router.use("/users", users);
 
 // KEEP LAST!
 // Catch all route -> 404
