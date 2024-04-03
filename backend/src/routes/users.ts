@@ -10,6 +10,14 @@ import { validate } from "./middlewares";
 
 const router = Router();
 
+const { users } = schema;
+
+const record = {
+  id: users.id,
+  firstname: users.firstname,
+  lastname: users.lastname,
+};
+
 const userRegistrationRequest = z.object({
   body: z
     .object({
@@ -34,8 +42,8 @@ router.post(
     const passwordSalt = salt();
     const passwordHash = hash(password, passwordSalt);
     try {
-      const users = await db
-        .insert(schema.users)
+      const records = await db
+        .insert(users)
         .values({
           email,
           emailConfirmationToken,
@@ -44,9 +52,8 @@ router.post(
           passwordHash,
           passwordSalt,
         })
-        .returning();
-      // TODO: make a JSON representation without sensitive data
-      res.status(201).json(JSON.stringify(users[0]));
+        .returning(record);
+      res.status(201).json(JSON.stringify(records[0]));
     } catch (err) {
       // TODO: add logging of errors
       console.error(err);
