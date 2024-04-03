@@ -4,6 +4,8 @@ import { SqliteError } from "better-sqlite3";
 import { TypedBodyRequest, UserRegistrationRequest } from "../types.d";
 import { emailToken, hash, salt } from "../utils/security";
 import { db, schema } from "../database";
+import { DatabaseError, DuplicateError } from "../database/errors";
+import { InternalError } from "../errors";
 import { validate } from "./middlewares";
 
 const router = Router();
@@ -48,20 +50,17 @@ router.post(
     } catch (err) {
       // TODO: add logging of errors
       console.error(err);
+      let error = new InternalError();
       if (err instanceof SqliteError) {
         switch (err.code) {
           case "SQLITE_CONSTRAINT_UNIQUE":
-            // TODO: find an DatabaseError class system
-            res.status(409).json({ code: 409, message: "Already exists" });
+            error = new DuplicateError();
             break;
           default:
-            res
-              .status(500)
-              .json({ code: 500, message: "Database Server Error" });
+            error = new DatabaseError();
         }
-      } else {
-        res.status(500).json({ code: 500, message: "Internal Server Error" });
       }
+      res.status(error.code).json(error);
     }
   },
 );
