@@ -24,7 +24,7 @@ In order to run the frontend locally, please run `npm run frontend:dev` at the r
 
 ## backend
 
-Uses [NodeJs](https://nodejs.org) + [ExpressJs](http://expressjs.com/) + [better-sqlite3](https://github.com/WiseLibs/better-sqlite3) + [drizzle](https://orm.drizzle.team/)
+Uses [NodeJs](https://nodejs.org) + [ExpressJs](http://expressjs.com/) + [better-sqlite3](https://github.com/WiseLibs/better-sqlite3) + [drizzle](https://orm.drizzle.team/) + [Zod](https://zod.dev)
 
 Environment variables have to be set properly in an `.env` file in the `backend` folder
 

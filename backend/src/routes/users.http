@@ -1,4 +1,4 @@
-### Register Request
+### Register Request successful
 POST http://localhost:5000/users/register HTTP/1.1
 Accept: application/json
 Content-Type : application/json
@@ -8,5 +8,18 @@ Content-Type : application/json
   "firstname": "John",
   "lastname": "Doe",
   "password": "p4ssw0rD",
+  "passwordConfirmation": "p4ssw0rD"
+}
+
+### Register Request failing
+POST http://localhost:5000/users/register HTTP/1.1
+Accept: application/json
+Content-Type : application/json
+
+{
+  "email": "john.doe.somewhere.rock",
+  "firstname": "John",
+  "lastname": "D",
+  "password": "p4ssw0rd",
   "passwordConfirmation": "p4ssw0rD"
 }
