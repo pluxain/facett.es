@@ -53,7 +53,7 @@ router.post(
           passwordSalt,
         })
         .returning(record);
-      res.status(201).json(JSON.stringify(records[0]));
+      res.status(201).json(records[0]);
     } catch (err) {
       // TODO: add logging of errors
       console.error(err);
