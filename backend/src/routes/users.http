@@ -1,7 +1,7 @@
 ### Register Request successful
 POST http://localhost:5000/users/register HTTP/1.1
 Accept: application/json
-Content-Type : application/json
+Content-Type: application/json
 
 {
   "email": "john.doe@somewhere.rock",
@@ -14,7 +14,7 @@ Content-Type : application/json
 ### Register Request failing
 POST http://localhost:5000/users/register HTTP/1.1
 Accept: application/json
-Content-Type : application/json
+Content-Type: application/json
 
 {
   "email": "john.doe.somewhere.rock",
@@ -22,4 +22,44 @@ Content-Type : application/json
   "lastname": "D",
   "password": "p4ssw0rd",
   "passwordConfirmation": "p4ssw0rD"
+}
+
+### Login Request successful
+POST http://localhost:5000/users/login HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "john.doe@somewhere.rock",
+  "password": "p4ssw0rD"
+}
+
+### Login Request failing validation
+POST http://localhost:5000/users/login HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "john.doe@somewhere.rock",
+  "password": "wrong"
+}
+
+### Login Request failing unknown user
+POST http://localhost:5000/users/login HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "unknown@user.club",
+  "password": "p4ssw0rD"
+}
+
+### Login Request failing no match
+POST http://localhost:5000/users/login HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "john.doe@somewhere.rock",
+  "password": "wrong password"
 }

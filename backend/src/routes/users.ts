@@ -1,22 +1,27 @@
 import { Response, Router } from "express";
+import { eq } from "drizzle-orm";
 import { z } from "zod";
 import { SqliteError } from "better-sqlite3";
-import { TypedBodyRequest, UserRegistrationRequest } from "../types.d";
+import {
+  TypedBodyRequest,
+  UserLoginRequest,
+  UserRegistrationRequest,
+} from "../types.d";
 import { emailToken, hash, salt } from "../utils/security";
 import { db, schema } from "../database";
-import { DatabaseError, DuplicateError } from "../database/errors";
+import {
+  DatabaseError,
+  DuplicateError,
+  NoMatchError,
+  NoRecordError,
+} from "../database/errors";
 import { InternalError } from "../errors";
+import { userToJson } from "../utils/adaptors";
 import { validate } from "./middlewares";
 
 const router = Router();
 
 const { users } = schema;
-
-const record = {
-  id: users.id,
-  firstname: users.firstname,
-  lastname: users.lastname,
-};
 
 const userRegistrationRequest = z.object({
   body: z
@@ -31,6 +36,13 @@ const userRegistrationRequest = z.object({
       message: "Passwords don't match", // TODO: i18n/l10n
       path: ["passwordConfirmation"],
     }),
+});
+
+const userLoginRequest = z.object({
+  body: z.object({
+    email: z.string().email(),
+    password: z.string().min(8),
+  }),
 });
 
 router.post(
@@ -52,8 +64,8 @@ router.post(
           passwordHash,
           passwordSalt,
         })
-        .returning(record);
-      res.status(201).json(records[0]);
+        .returning();
+      res.status(201).json(userToJson(records[0]));
     } catch (err) {
       // TODO: add logging of errors
       console.error(err);
@@ -69,6 +81,33 @@ router.post(
       }
       res.status(error.code).json(error);
     }
+  },
+);
+
+router.post(
+  "/login",
+  validate(userLoginRequest),
+  async (req: TypedBodyRequest<UserLoginRequest>, res: Response) => {
+    const { email, password } = req.body;
+    const records = await db.select().from(users).where(eq(users.email, email));
+    if (records.length === 0) {
+      const error = new NoRecordError();
+      return res.status(error.code).json(error);
+    }
+    const user = records[0];
+
+    const isMatch = hash(password, user.passwordSalt) === user.passwordHash;
+    if (!isMatch) {
+      const error = new NoMatchError();
+      return res.status(error.code).json(error);
+    }
+
+    await db
+      .update(users)
+      .set({ lastLoginAt: new Date() })
+      .where(eq(users.id, user.id));
+
+    res.json(userToJson(user));
   },
 );
 

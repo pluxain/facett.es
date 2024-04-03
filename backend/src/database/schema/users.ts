@@ -17,3 +17,5 @@ export const users = sqliteTable(
     passwordSalt: text("password_salt").notNull(),
   }),
 );
+
+export type UserRecord = typeof users.$inferInsert;
