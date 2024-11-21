@@ -48,47 +48,48 @@ const { dateFormatter: dateFormatterForEducation } = useDateTimeFormatters(
   >
     <aside class="grid gap-4 text-sm">
       <div class="flex justify-center items-center bg-[#323232]">
-        <div class="w-[70mm] h-[70mm] rounded-full">
-          <img :src="`/images/profiles/${profile.id}/${profile.picture}`" />
-        </div>
+        <img
+          :src="`/images/profiles/${profile.id}/${profile.picture}`"
+          class="rounded-full object-cover h-[68mm] w-[68mm]"
+        />
       </div>
-      <div class="grid gap-4 p-4 bg-blue-200">
-        <div>
-          <SectionHeading text="Technical Skills" />
-          <ul class="list-inside font-light">
-            <li v-for="skill in hardSkills" :key="skill.id">
-              {{ skill.text }}
-            </li>
-          </ul>
-        </div>
-        <div>
-          <SectionHeading text="Soft Skills" />
-          <ul class="list-inside font-light">
-            <li v-for="skill in softSkills" :key="skill.id">
-              {{ skill.text }}
-            </li>
-          </ul>
-        </div>
-        <div>
-          <SectionHeading text="Languages" />
-          <ul class="flex gap-4 list-none">
-            <li v-for="skill in languageSkills" :key="skill.id">
-              <img
-                :src="`/images/flags/svg/${skill.flag}.svg`"
-                class="w-6 h-full object-cover rounded-sm shadow-md"
-              />
-            </li>
-          </ul>
-        </div>
+      <div class="px-4 flex flex-col justify-center bg-blue-300">
+        <SectionHeading text="Technical Skills" />
+        <ul class="list-inside font-light">
+          <li v-for="skill in hardSkills" :key="skill.id">
+            {{ skill.text }}
+          </li>
+        </ul>
       </div>
-      <div class="bg-gray-100 p-4">
+      <div class="px-4 flex flex-col justify-center bg-blue-200">
+        <SectionHeading text="Soft Skills" />
+        <ul class="list-inside font-light">
+          <li v-for="skill in softSkills" :key="skill.id">
+            {{ skill.text }}
+          </li>
+        </ul>
+      </div>
+      <div class="px-4 flex flex-col justify-center bg-blue-100">
+        <SectionHeading text="Languages" />
+        <ul class="flex gap-4 list-none">
+          <li v-for="skill in languageSkills" :key="skill.id">
+            <img
+              :src="`/images/flags/svg/${skill.flag}.svg`"
+              class="w-6 h-full object-cover rounded-sm shadow-md"
+            />
+          </li>
+        </ul>
+      </div>
+      <div class="px-4 flex flex-col justify-center bg-blue-50">
         <SectionHeading text="Contact me" />
         <ul class="flex flex-col list-none font-light">
           <li>
             <a :href="`mailto:${profile.email}`">{{ profile.email }}</a>
           </li>
           <li>
-            {{ profile.phoneNumber }}
+            <a :href="`tel:${profile.phoneNumber}`">{{
+              profile.phoneNumber
+            }}</a>
           </li>
         </ul>
       </div>
@@ -108,7 +109,10 @@ const { dateFormatter: dateFormatterForEducation } = useDateTimeFormatters(
         <article>
           <SectionHeading text="Profile" />
           <!-- eslint-disable vue/no-v-html -->
-          <div class="font-light" v-html="marked(profile.introduction)"></div>
+          <div
+            class="profile font-light"
+            v-html="marked(profile.introduction)"
+          ></div>
           <!-- eslint-enable vue/no-v-html -->
         </article>
         <article>
@@ -164,3 +168,8 @@ const { dateFormatter: dateFormatterForEducation } = useDateTimeFormatters(
     </section>
   </div>
 </template>
+<style lang="postcss">
+.profile strong {
+  font-weight: 500;
+}
+</style>
