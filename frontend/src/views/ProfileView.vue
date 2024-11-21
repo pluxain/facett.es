@@ -98,10 +98,14 @@ const { dateFormatter: dateFormatterForEducation } = useDateTimeFormatters(
       <header
         class="flex flex-col gap-4 justify-center items-center pb-8 border-b-4 border-blue-200"
       >
-        <h1 class="text-3xl font-bold text-blue-300">
+        <h1
+          class="text-3xl font-bold text-blue-300 [font-variant-caps:small-caps]"
+        >
           {{ profile.firstname }} {{ profile.lastname }}
         </h1>
-        <h2 class="text-xl font-bold text-center uppercase underline">
+        <h2
+          class="text-xl font-bold text-center [font-variant-caps:small-caps] underline"
+        >
           {{ profile.qualification }}
         </h2>
       </header>
@@ -122,7 +126,9 @@ const { dateFormatter: dateFormatterForEducation } = useDateTimeFormatters(
             :key="workExperience.id"
             class="my-4"
           >
-            <h4 class="mb-2 text-l font-extrabold">
+            <h4
+              class="mb-2 text-l font-extrabold [font-variant-caps:small-caps]"
+            >
               {{ workExperience.jobTitle }}
             </h4>
             <h5 class="font-normal tracking-wide">
@@ -148,7 +154,9 @@ const { dateFormatter: dateFormatterForEducation } = useDateTimeFormatters(
             :key="education.id"
             class="my-4"
           >
-            <h4 class="mb-2 text-l font-extrabold">
+            <h4
+              class="mb-2 text-l font-extrabold [font-variant-caps:small-caps]"
+            >
               {{ education.title }} | {{ education.degree }}
             </h4>
             <h5 class="font-normal tracking-wide">

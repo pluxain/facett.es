@@ -5,7 +5,7 @@ type Props = {
 };
 
 withDefaults(defineProps<Props>(), {
-  cssClasses: "mb-2 text-lg font-bold uppercase",
+  cssClasses: "mb-2 text-lg font-bold [font-variant-caps:small-caps]",
 });
 </script>
 

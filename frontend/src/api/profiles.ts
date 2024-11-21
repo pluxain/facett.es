@@ -18,34 +18,44 @@ export async function getProfile(id: UUID): Promise<Profile> {
         title: "Software Developer",
       },
     ],
-    email: "pascal.luxain@gmail.com",
+    email: "pascal@luxain.solutions",
     firstname: "Pascal",
-    introduction: `Jack of all trades specialized in frontend development.
+    introduction: `Jack of all trades **specialized in frontend** development.
     Armed with a **“can do”** attitude and **focused on finding solutions**.
     Purposefully seek to write functional, fast and maintainable code following best practices and using tests to give
     **confidence** and provide documentation.
     **Driven** to deliver the best software possible to make **happy users**.
-    Eager to learn. 25+ years experience in Information Technology.
+    Eager to learn and still learning. 25+ years experience in Information Technology.
     `,
     lastname: "Luxain",
     phoneNumber: "+43 663 0311 0394",
-    picture: "2c5e571a-fa0e-4661-8a55-b95518029640.png",
-    qualification: "Senior Fullstack Developer",
+    picture: "a48d1555-aff4-4fbd-a717-40f7fe8b0de1.jpg",
+    qualification: "Senior Full-Stack Developer",
     skills: [
       {
         id: "1d6415ca-e520-477a-b7dc-554137896d67",
         kind: "hard",
-        text: "Javascript/Typescript",
-      },
-      {
-        id: "cddedbfd-7729-4252-888c-20821160ae9d",
-        kind: "hard",
-        text: "HTML/CSS",
+        text: "Typescript/Javascript",
       },
       {
         id: "3afce9ea-8635-46a5-91a6-9547420bec1c",
         kind: "hard",
-        text: "React/Vue/Tailwind",
+        text: "ReactJS/VueJS",
+      },
+      {
+        id: "cddedbfd-7729-4252-888c-20821160ae9d",
+        kind: "hard",
+        text: "HTML/CSS/TailwindCSS/SCSS",
+      },
+      {
+        id: "49eb7951-f9f6-43f6-9b6f-52c3b7e98a39",
+        kind: "hard",
+        text: "Java/Spring Boot",
+      },
+      {
+        id: "604b584b-a6ae-4836-ad39-f427add97853",
+        kind: "hard",
+        text: "Learning Rust and Python",
       },
       {
         id: "c299c4af-2972-4349-b783-ba76c1d69dda",
@@ -90,16 +100,6 @@ export async function getProfile(id: UUID): Promise<Profile> {
         flag: "gb",
         kind: "language",
         text: "english",
-      },
-      {
-        id: "49eb7951-f9f6-43f6-9b6f-52c3b7e98a39",
-        kind: "hard",
-        text: "Java/Spring Boot",
-      },
-      {
-        id: "5428c718-5f71-4ec3-abf9-f6c968f52c50",
-        kind: "hard",
-        text: "PHP/Laravel",
       },
       {
         id: "0e21df29-f21b-4c75-9bee-110f5790ee3e",
